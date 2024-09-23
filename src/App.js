@@ -6,13 +6,17 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import SignUp from "./Components/Users/Auth/SignUp";
 import SignIn from "./Components/Users/Auth/SignIn";
+import Navbar from "./Components/Navbar/Navbar";
+import Home from "./Components/HomePage/Home";
 
 export default function App() {
   return (
     <Router>
       <div>
-        <Users></Users>
+      
+      <Navbar/>
         <Routes>
+          <Route exact path="/" element={<Home/>} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/signin" element={<SignIn />} />
         </Routes>
