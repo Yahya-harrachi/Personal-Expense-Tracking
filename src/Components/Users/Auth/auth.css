@@ -38,9 +38,15 @@ body {
     background-color: #313030; /* Dark input background */
     border: none;
     border-radius: 8px;
-    color: #ffffff; /* Light text color for input */
+    font-size: 15px;
+    color: #f0e000; /* Light text color for input */
     transition: border-color 0.3s;
 }
+
+.auth-form input::placeholder {
+    color: #f0e0006b; /* Brighter white for placeholder */
+}
+
 
 .auth-form input:focus {
     border-color: #007BFF;

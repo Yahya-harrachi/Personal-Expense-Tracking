@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './auth.css';
-import { Link } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import app from '../../../Firebase';
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ export default function SignIn() {
     const [ password , setPassword ] = useState('')
 
     const auth = getAuth(app)
+    const navigate = useNavigate()
 
     const SignIn = (e) => {
         e.preventDefault()
@@ -17,6 +18,7 @@ export default function SignIn() {
         .then((userCredentiel) => {
             const user = userCredentiel.user
             toast.success("User Signed in successfully!")
+            navigate('/Dashbord')
             console.log(user)
         }).catch((error) => {
             toast.error('Something went Wrong !')

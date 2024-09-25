@@ -1,0 +1,41 @@
+/* dashboard.css */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .sidebar li:hover {
+    background: #52789e;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto; /* Allows scrolling if content exceeds viewport */
+  }
+  
