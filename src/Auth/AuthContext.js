@@ -10,8 +10,13 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsAuthenticated(true); // Set true if user exists
-      console.log('User:', user); // Log user object for debugging
+      if (user) {
+        setIsAuthenticated(true); // Set authenticated to true if user exists
+        console.log('User authenticated:', user); // Log user for debugging
+      } else {
+        setIsAuthenticated(false); // Set authenticated to false if no user
+        console.log('No user is authenticated'); // Log when user is not authenticated
+      }
     });
 
     return () => unsubscribe(); // Clean up the subscription on unmount

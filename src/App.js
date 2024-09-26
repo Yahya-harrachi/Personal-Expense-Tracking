@@ -1,5 +1,5 @@
 // App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,11 +12,14 @@ import { AuthProvider } from './Auth/AuthContext';
 import PrivateRoute from './Auth/PrivateRoute';
 
 export default function App() {
+
+  const [activeComponent, setActiveComponent] = useState('ExpenseForm');
+
   return (
     <AuthProvider>
       <Router>
         <div>
-          <Navbar />
+          <Navbar setActiveComponent={setActiveComponent} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<SignUp />} />
@@ -25,7 +28,7 @@ export default function App() {
               path="/Dashbord"
               element={
                 <PrivateRoute>
-                  <Dashbord />
+                  <Dashbord activeComponent={activeComponent} setActiveComponent={setActiveComponent}/>
                 </PrivateRoute>
               }
             />

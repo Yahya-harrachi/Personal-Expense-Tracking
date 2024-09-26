@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './auth.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import app from '../../../Firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
@@ -11,6 +11,8 @@ export default function SignUp() {
     const [password, setPassword] = useState('')
     const [name, setName] = useState(null)
 
+    const navigate = useNavigate()
+
     const auth = getAuth(app)
 
     const signUp = (e) => {
@@ -19,6 +21,7 @@ export default function SignUp() {
             .then((userCredential) => {
                 const user = userCredential.user //user Details
                 console.log("User Created :", user)
+                navigate("/Dashbord")
                 toast.success("User created successfully!")
             }).catch((error) => {
                 console.error("Error signing up:", error)

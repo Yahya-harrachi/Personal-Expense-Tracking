@@ -3,9 +3,10 @@ import './dashbord.css';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 import ExpenseList from './ExpenseList/ExpenseList';
 import ExpenseSummary from './ExpenseSummary/ExpenseSummary';
+import Profile from '../Users/Profile/Profile';
+import Settings from '../Users/Settings/Settings';
 
-export default function Dashbord() {
-  const [activeComponent, setActiveComponent] = useState('ExpenseForm');
+export default function Dashbord({ activeComponent, setActiveComponent }) {
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -15,6 +16,10 @@ export default function Dashbord() {
         return <ExpenseList />;
       case 'ExpenseSummary':
         return <ExpenseSummary />;
+      case 'Profile':
+        return <Profile />
+      case 'Settings':
+        return <Settings />
       default:
         return <ExpenseForm />;
     }
