@@ -1,0 +1,67 @@
+.accueil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .profile-warning {
+    background-color: #ffcccc;
+    color: #ff0000;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-warning a {
+    color: #ff0000;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .dashboard-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .action-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-basis: 30%;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .action-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .action-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .action-card p {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-actions {
+      flex-direction: column;
+    }
+  
+    .action-card {
+      flex-basis: 100%;
+    }
+  }
+  

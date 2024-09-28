@@ -13,7 +13,7 @@ import PrivateRoute from './Auth/PrivateRoute';
 
 export default function App() {
 
-  const [activeComponent, setActiveComponent] = useState('ExpenseForm');
+  const [activeComponent, setActiveComponent] = useState('DashbordAcceuil');
 
   return (
     <AuthProvider>

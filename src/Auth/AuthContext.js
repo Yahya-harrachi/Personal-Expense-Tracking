@@ -6,16 +6,19 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null); // Use null initially
+  const [ user , setUser ] = useState(null)
   const auth = getAuth(app);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true); // Set authenticated to true if user exists
-        console.log('User authenticated:', user); // Log user for debugging
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setIsAuthenticated(true); // Set authenticated to true if currentUser exists
+        setUser(currentUser)
+        console.log('currentUser authenticated:', currentUser); // Log currentUser for debugging
       } else {
-        setIsAuthenticated(false); // Set authenticated to false if no user
-        console.log('No user is authenticated'); // Log when user is not authenticated
+        setIsAuthenticated(false); // Set authenticated to false if no currentUser
+        setUser(null);
+        console.log('No currentUser is authenticated'); // Log when currentUser is not authenticated
       }
     });
 
@@ -23,7 +26,7 @@ export function AuthProvider({ children }) {
   }, [auth]);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated }}>
+    <AuthContext.Provider value={{ isAuthenticated , user }}>
       {children}
     </AuthContext.Provider>
   );

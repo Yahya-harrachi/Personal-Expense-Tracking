@@ -8,6 +8,7 @@ import app from '../../Firebase';
 import { toast } from 'react-toastify';
 
 const Navbar = ({ setActiveComponent }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For the dropdown
   const { isAuthenticated } = useContext(AuthContext);
@@ -104,8 +105,8 @@ const Navbar = ({ setActiveComponent }) => {
                 to="#" // Prevent navigation
                 className="dropdown-item"
                 onClick={() => {
-                  setActiveComponent('Profile'); // Set active component to Profile
-                  setIsDropdownOpen(false); // Close the dropdown
+                  setActiveComponent('Profile'); 
+                  setIsDropdownOpen(false); 
                 }}
               >
                 Profile
@@ -114,8 +115,8 @@ const Navbar = ({ setActiveComponent }) => {
                 to="#" // Prevent navigation
                 className="dropdown-item"
                 onClick={() => {
-                  setActiveComponent('Settings'); // Set active component to Profile
-                  setIsDropdownOpen(false); // Close the dropdown
+                  setActiveComponent('Settings'); 
+                  setIsDropdownOpen(false); 
                 }}
               >
                 Settings

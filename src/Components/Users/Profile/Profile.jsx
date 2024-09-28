@@ -1,8 +1,10 @@
-import React from 'react'
-import './profile.css'
+import React from "react";
 
-export default function Profile() {
+export default function Profile({setActiveComponent}) {
   return (
-    <div>Profile</div>
-  )
+    <div>
+      <h1>Profile</h1>
+      <input type="button" value="Update Profile" onClick={() => setActiveComponent("UpdateProfile")}/>
+    </div>
+  );
 }
