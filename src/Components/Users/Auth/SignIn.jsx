@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './auth.css';
 import {  Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import app from '../../../Firebase';
+import {app} from '../../../Firebase';
 import { toast } from 'react-toastify';
 
 export default function SignIn() {

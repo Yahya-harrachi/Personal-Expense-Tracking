@@ -4,7 +4,7 @@ import './navbar.css';
 import { AuthContext } from '../../Auth/AuthContext';
 import avatar from '../../Images/avatar.png'; // Correctly import the image
 import { getAuth, signOut } from 'firebase/auth';
-import app from '../../Firebase';
+import {app} from '../../Firebase';
 import { toast } from 'react-toastify';
 
 const Navbar = ({ setActiveComponent }) => {

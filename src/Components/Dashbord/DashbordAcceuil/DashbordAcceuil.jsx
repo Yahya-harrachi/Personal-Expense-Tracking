@@ -2,16 +2,42 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './dashbordAcceuil.css';
 import { AuthContext } from '../../../Auth/AuthContext';
+import { doc, getDoc } from 'firebase/firestore';
+import { Database } from '../../../Firebase';
 
 const DashbordAcceuil = ({setActiveComponent}) => {
   const { user } = useContext(AuthContext); // Assuming user is fetched from the AuthContext
   const [profileComplete, setProfileComplete] = useState(true);
+  
+  useEffect( () => {
+    const fetchUserData = async () => {
+      try {
+      const userDoc = doc(Database , "User", user.uid)
+      const userDocSnap = await getDoc(userDoc)
 
-  useEffect(() => {
-    console.log("user INFO :" + user.email)
-    if (!user || !user.displayName || !user.email || !user.photoURL) {
-      setProfileComplete(false);
+    if (userDocSnap.exists()) {
+      console.log("Document data:", userDocSnap.data());
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+      
     }
+    if (!userDocSnap || !userDocSnap.name || !userDocSnap.email || !userDocSnap.photoURL
+      || !userDocSnap.sallary
+  ) {
+    setProfileComplete(false);
+  }
+    } catch (error) {
+      console.log(error)
+    }
+    }
+    
+    if (user && user.uid) {
+      console.log("Fetching data for user with ID:", user.uid);
+      fetchUserData();
+    }
+    
+    
   }, [user]);
 
   return (
